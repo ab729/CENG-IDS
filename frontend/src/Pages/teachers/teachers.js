@@ -1,9 +1,7 @@
-import './tables.css'
+import '../students/tables.css'
 import React from 'react'
 
-export default function students() {
-
-
+export default function teachers() {
   return (
     <div>
       <div className="data-table">
@@ -14,6 +12,8 @@ export default function students() {
             <th>Age</th>
             <th>id</th>
             <th>address</th>
+            <th>sallery</th>
+            <th>employed since</th>
           </tr>
           <tr>
             <td>John</td>
@@ -21,9 +21,11 @@ export default function students() {
             <td>22</td>
             <td>123</td>
             <td>1234 Main St</td>
+            <td>1200.00$</td>
+            <td>2014</td>
           </tr>
         </table>
       </div>
     </div>
-  )
+  );
 }

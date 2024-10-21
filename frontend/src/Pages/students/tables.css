@@ -1,0 +1,20 @@
+.data-table{
+    max-width: 1080px;
+    margin: 24px auto;
+    background-color: azure;
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.data-table table th, td{
+    padding: 0px 24px;
+    vertical-align: middle;
+}
+.data-table table td{
+    vertical-align: middle;
+    text-align: center;
+}

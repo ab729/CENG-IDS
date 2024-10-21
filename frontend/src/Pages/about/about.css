@@ -1,0 +1,19 @@
+.about-container{
+    max-width: 1080px;
+    margin: 64px auto;
+    padding: 24px;
+    background-color: #f3f0f0;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.05);
+
+}
+.about-container h2{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.about-container p{
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
