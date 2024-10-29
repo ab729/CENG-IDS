@@ -31,3 +31,47 @@
 .navbar p{
     margin-right: 48px;
 }
+
+.options {
+    display: flex;
+    align-items: center;
+    margin-right: 64px;
+}
+.options span {
+    margin-right: 24px;
+    font-size: 20px;
+    font-weight: normal;
+    color: aliceblue;
+}
+.options span:hover {
+    color: #490cf0;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.options button {
+    background-color: #f10909;
+    color: #fff;
+    border: none;
+    padding: 8px 32px;
+    margin-right: 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+    /* transition: 0.3s; */
+}
+.options button:hover {
+    background-color: #f5f0f0;
+    color: #ee0707;
+    transition: 0.4s;
+}
+
+.options a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-right: 24px;
+}

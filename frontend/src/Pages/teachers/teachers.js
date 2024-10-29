@@ -1,31 +1,58 @@
 import '../students/tables.css'
 import React from 'react'
+import { useAuthContext } from '../../hooks/useAuthContext';
 
-export default function teachers() {
+export default function Teachers() {
+  const { user } = useAuthContext();
+  const [data, setData] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
+
+  const getRecorders = async () => {
+    setLoading(true);
+    const response = await fetch('http://localhost:3000/teachers',
+      {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      }
+    )
+    const json = await response.json();
+    setData(json);
+    setLoading(false);
+  }
+  console.log(user.token);
+  
+  
   return (
     <div>
-      <div className="data-table">
-        <table>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
-            <th>id</th>
-            <th>address</th>
-            <th>sallery</th>
-            <th>employed since</th>
-          </tr>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>22</td>
-            <td>123</td>
-            <td>1234 Main St</td>
-            <td>1200.00$</td>
-            <td>2014</td>
-          </tr>
-        </table>
-      </div>
+      {loading && <div className="loading">Loading...</div>}
+      {!loading && (
+        <div className="data-table">
+          <table>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Age</th>
+              <th>address</th>
+              <th>employed since</th>
+              <th>sallery</th>
+            </tr>
+
+            {data.map((teacher) => {
+              return (
+                <tr key={teacher.id}>
+                  <td>{teacher.fname}</td>
+                  <td>{teacher.lname}</td>
+                  <td>{teacher.age}</td>
+                  <td>{teacher.address}</td>
+                  <td>{teacher.doe.split('T')[0]}</td>
+                  <td>{teacher.sallery.split('.')[0]}$</td>
+                </tr>
+              );
+            })}
+          </table>
+        </div>
+      )}
     </div>
   );
 }
