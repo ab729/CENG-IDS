@@ -1,32 +1,23 @@
 import '../students/tables.css'
 import React from 'react'
+import { useEffect } from 'react';
+import { useGetData } from '../../hooks/useGetData';
 import { useAuthContext } from '../../hooks/useAuthContext';
 
 export default function Teachers() {
-  const { user } = useAuthContext();
-  const [data, setData] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
+  const { getRecorders, data, loading } = useGetData();
+  const { user, isAuthenticated } = useAuthContext();
 
-  const getRecorders = async () => {
-    setLoading(true);
-    const response = await fetch('http://localhost:3000/teachers',
-      {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
-        }
-      }
-    )
-    const json = await response.json();
-    setData(json);
-    setLoading(false);
-  }
-  console.log(user.token);
-  
+  useEffect(() => {
+    getRecorders("teachers");
+
+
+   }, []);
   
   return (
     <div>
       {loading && <div className="loading">Loading...</div>}
-      {!loading && (
+      {isAuthenticated && (
         <div className="data-table">
           <table>
             <tr>

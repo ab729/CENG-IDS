@@ -15,7 +15,6 @@ const handleSubmit = async(e) => {
 }
 
   return (
-    <div>
       <form className="box" onSubmit={handleSubmit}>
         <h2>Sign in</h2>
         <label>
@@ -41,6 +40,5 @@ const handleSubmit = async(e) => {
           Sign in
         </button>
       </form>
-    </div>
   );
 }

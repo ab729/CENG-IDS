@@ -22,15 +22,19 @@ export const authReducer = (state, action) => {
 };
 
 export const AuthProvider = ({ children }) => {
+    
     const [state, dispatch] = useReducer(authReducer, {
         user: null, 
         isAuthenticated: false,
     })
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
+        const user = localStorage.getItem('user');
         if (user) {
-            dispatch({ type: 'LOGIN', payload: user });
+            dispatch({
+                type: 'LOGIN',
+                payload: JSON.parse(user),
+            });
         }
     }, []);
 

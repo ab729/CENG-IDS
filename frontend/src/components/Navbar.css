@@ -10,23 +10,34 @@
     font-size: 24px;
 
 }
-.list, ul {
+.list {
     display: flex;
+    flex-direction: row;
     list-style-type: none;
     align-items: center;
-    margin: 0 200px 0 0;
 }
 
 .list li {
-    padding: 0 12px;
+    padding: 8px 10px;
+    margin: 0 12px;
+    background-color: #fff;
+    border-radius: 12px;
+    transition: 0.4s;
 }
-.list li:first-child{
-    padding-left: 32px;
+.list li:hover {
+    background-color: #14A46A;
 }
-.list li a {
-    color: #fff;
-    text-decoration: none;
 
+.list li a {
+    color: #14A46A;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 49px 24px;
+    transition: 0.2s;
+}
+.list li a:hover {
+    color: #fff;
+    transition: 0.4s;
 }
 .navbar p{
     margin-right: 48px;
