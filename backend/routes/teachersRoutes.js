@@ -5,11 +5,15 @@ const express = require('express');
 const router = express.Router();
 
 // importing controllers
-const getTeachers = require("../controllers/teachersControllers");
+const controllers = require("../controllers/teachersControllers");
+
+// middlewares
+const requireAuth = require("../middleware/requireAuth");
+
+router.use(requireAuth);
 
 
-router.get("/", getTeachers.getTeachers);
-
+router.get("/", controllers.getTeachers);
 
 
 
